@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @genre="getSearch" :cardEmit="cards" />
-    <Main @card="getCard" />
+    <Main @card="getCard" :genre="genre" />
   </div>
 </template>
 
@@ -14,6 +14,7 @@ export default {
   data() {
     return {
       cards: [],
+      genre: "",
     };
   },
   components: {
@@ -25,7 +26,7 @@ export default {
       this.cards = card;
     },
     getSearch(search) {
-      console.log(search);
+      this.genre = search;
     },
   },
 };

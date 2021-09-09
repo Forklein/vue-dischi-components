@@ -2,7 +2,7 @@
   <main>
     <div class="container my-5">
       <div class="row mx-auto g-3">
-        <div v-for="(card, index) in cards" :key="index" class="col-2">
+        <div v-for="(card, index) in filteredCards" :key="index" class="col-2">
           <Card :card="card" />
         </div>
       </div>
@@ -26,12 +26,12 @@ export default {
   },
   computed: {
     filteredCards() {
-      console.log(this.genre);
-      //   return this.cards.filter((card) => {
-      //     if (card.genre.includes(this.genre)) {
-      //       return true;
-      //     }
-      //   });
+      if (this.genre == "All") return this.cards;
+      return this.cards.filter((card) => {
+        if (card.genre.includes(this.genre)) {
+          return true;
+        }
+      });
     },
   },
   props: ["genre"],
