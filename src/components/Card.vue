@@ -1,9 +1,9 @@
 <template>
   <div class="card p-2">
     <img :src="card.poster" :alt="card.title" />
-    <h6 class="m-0">{{ card.title }}</h6>
     <br />
-    <div class="info">
+    <div class="info text-center">
+      <h6>{{ card.title }}</h6>
       <p class="m-0">{{ card.author }}</p>
       <time>{{ card.year }}</time>
     </div>
@@ -13,9 +13,6 @@
 <script>
 export default {
   name: "Card",
-  data() {
-    return {};
-  },
   props: ["card"],
 };
 </script>
@@ -25,6 +22,6 @@ export default {
 
 .card {
   background-color: $card-color;
-  height: 300px;
+  min-height: 350px;
 }
 </style>

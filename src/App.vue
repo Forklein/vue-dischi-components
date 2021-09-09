@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header />
-    <Main />
+    <Header :cardEmit="cards" />
+    <Main @card="getCard" />
   </div>
 </template>
 
@@ -11,9 +11,19 @@ import Main from "@/components/Main.vue";
 
 export default {
   name: "App",
+  data() {
+    return {
+      cards: [],
+    };
+  },
   components: {
     Header,
     Main,
+  },
+  methods: {
+    getCard(card) {
+      this.cards = card;
+    },
   },
 };
 </script>

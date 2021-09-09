@@ -29,6 +29,7 @@ export default {
       .get("https://flynn.boolean.careers/exercises/api/array/music")
       .then((res) => {
         this.cards = res.data.response;
+        this.$emit("card", this.cards);
       })
       .catch((err) => {
         console.log(err);
