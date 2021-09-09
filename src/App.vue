@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header :cardEmit="cards" />
+    <Header @genre="getSearch" :cardEmit="cards" />
     <Main @card="getCard" />
   </div>
 </template>
@@ -23,6 +23,9 @@ export default {
   methods: {
     getCard(card) {
       this.cards = card;
+    },
+    getSearch(search) {
+      console.log(search);
     },
   },
 };

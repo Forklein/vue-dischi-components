@@ -24,6 +24,17 @@ export default {
       cards: [],
     };
   },
+  computed: {
+    filteredCards() {
+      console.log(this.genre);
+      //   return this.cards.filter((card) => {
+      //     if (card.genre.includes(this.genre)) {
+      //       return true;
+      //     }
+      //   });
+    },
+  },
+  props: ["genre"],
   created() {
     axios
       .get("https://flynn.boolean.careers/exercises/api/array/music")

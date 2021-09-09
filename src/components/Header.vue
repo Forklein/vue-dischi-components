@@ -6,8 +6,12 @@
           <img src="@/assets/img/logo.svg" alt="logo" style="max-width: 50%" />
         </div>
         <div class="col-6 d-flex justify-content-center align-items-center">
-          <select>
-            <option selected disabled>Seleziona un Genere</option>
+          <select
+            @change="getSearch"
+            v-model.trim="genreSearch"
+            :result="genreSearch"
+          >
+            <option>All</option>
             <option v-for="(gen, index) in filterCardEmit" :key="index">
               {{ gen }}
             </option>
@@ -20,6 +24,11 @@
 <script>
 export default {
   name: "Header",
+  data() {
+    return {
+      genreSearch: "All",
+    };
+  },
   computed: {
     filterCardEmit() {
       const genre = [];
@@ -29,6 +38,11 @@ export default {
         }
       });
       return genre;
+    },
+  },
+  methods: {
+    getSearch() {
+      this.$emit("genre", this.genreSearch);
     },
   },
   props: ["cardEmit"],
