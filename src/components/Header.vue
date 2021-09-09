@@ -8,7 +8,7 @@
         <div class="col-6 d-flex justify-content-center align-items-center">
           <select>
             <option selected disabled>Seleziona un Genere</option>
-            <option>Test</option>
+            <option></option>
           </select>
         </div>
       </div>
