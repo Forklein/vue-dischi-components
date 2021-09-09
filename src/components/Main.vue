@@ -2,7 +2,15 @@
   <main>
     <div class="container my-5">
       <div class="row mx-auto g-3">
-        <div v-for="(card, index) in filteredCards" :key="index" class="col-2">
+        <Loader v-if="false">
+          <div class="alert alert-danger" role="alert">Loading</div>
+        </Loader>
+        <div
+          v-else
+          v-for="(card, index) in filteredCards"
+          :key="index"
+          class="col-2"
+        >
           <Card :card="card" />
         </div>
       </div>
@@ -13,11 +21,13 @@
 <script>
 import axios from "axios";
 import Card from "@/components/Card.vue";
+import Loader from "@/components/Loader.vue";
 
 export default {
   name: "Main",
   components: {
     Card,
+    Loader,
   },
   data() {
     return {
